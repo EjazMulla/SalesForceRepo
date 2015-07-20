@@ -1,0 +1,86 @@
+<apex:page standardController="Account">
+    <apex:composition template="Dynamic">
+    	<apex:define name="body">
+        </apex:define>
+    </apex:composition>
+    
+    
+    
+ <apex:form > 
+    <apex:pageBlock >
+        <apex:pageBlockSection >
+            <apex:inputField value="{!account.name}"/>
+            <apex:pageMessages />
+            <apex:inputField value="{!account.industry}"/>            
+            <apex:inputField value="{!account.type}"/>
+            <apex:inputField value="{!account.ownership}"/>
+            <apex:inputhidden value="{!account.accountNumber}"/>
+            <apex:inputsecret value="{!account.accountNumber}"/>            
+            <p>Change description to:</p> 
+            <apex:inputTextarea id="newDesc" value="{!account.ownership}"/><p/>
+            <apex:inputText id="theTextInput"/>
+            
+            
+           <apex:outputLink value="http://google.com/search">
+                Search Google
+            <apex:param name="q" value="{!account.name}"/>
+    </apex:outputLink>
+            
+       <apex:panelBar >
+
+        <apex:panelBarItem label="Item 1">data 1</apex:panelBarItem>
+        <apex:panelBarItem label="Item 2">data 2</apex:panelBarItem>
+        <apex:panelBarItem label="Item 3">data 3</apex:panelBarItem>
+
+        </apex:panelBar>        
+          
+            <c:mycomponent >
+                <apex:outputText value="{page}This is Component Body example." /><br/>
+            </c:mycomponent>
+            <c:testComponent textValue="This text is blue" textColor="blue"/>
+            <c:testComponent textValue="This text is red" textColor="red"/>
+            <c:testComponent textValue="This text is green" textColor="green"/>            
+        </apex:pageBlockSection>
+             <apex:pageBlockButtons >
+        <apex:commandButton value="Save" action="{!save}"/>
+        <apex:commandButton value="Cancel" action="{!cancel}"/>               
+      </apex:pageBlockButtons>
+    </apex:pageBlock>
+ </apex:form> 
+    
+  <apex:pageMessages />
+  <apex:panelBar >
+
+    <apex:panelBarItem label="Item One" 
+
+          onenter="alert('Entering item one');" 
+
+          onleave="alert('Leaving item one');">
+
+      Item one content
+
+    </apex:panelBarItem>
+
+    <apex:panelBarItem label="Item Two" 
+
+          onenter="alert('Entering item two');" 
+
+          onleave="alert('Leaving item two');">
+
+      Item two content
+
+    </apex:panelBarItem>
+
+  </apex:panelBar>
+    <apex:panelGrid columns="3" id="theGrid">
+        <apex:outputText value="First" id="theFirst"/>
+        <apex:outputText value="Second" id="theSecond"/>
+        <apex:panelGroup id="theGroup">
+            <apex:outputText value="Third" id="theThird"/>
+            <apex:outputText value="Fourth" id="theFourth"/>        
+        </apex:panelGroup>        
+    
+    </apex:panelGrid>
+    
+
+</apex:page>
